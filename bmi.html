@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMI計算</title>
+</head>
+<style>
+body {
+    font-family: Microsoft JhengHei;
+    background-image: url(./images/SDASDASDAB.gif);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+<script type="text/javascript">
+function countBmi() {
+    var cm = a.enterCm.value;
+    var kg = a.enterKg.value;
+    cm = cm / 100;
+    var bmi = kg / (cm * cm);
+    var bmir = Math.round(bmi * 10) / 10;
+    your_bmi = bmir;
+    a.a_bmi.value = your_bmi;
+
+    if (your_bmi < 18.5)
+        document.getElementById("demo").innerHTML = ('<button type="button" class="btn btn-warning">你太瘦啦 Σ(ﾟдﾟ|||)!<br>要多吃點啊!!!</button>');
+    if (your_bmi > 18.5)
+        document.getElementById("demo").innerHTML = ('<button type="button" class="btn btn-success">恭喜你 ヽ(ﾟ∀ﾟ)ﾉ<br>BMI值在正常範圍唷!!!</button>');
+    if (your_bmi > 25)
+        document.getElementById("demo").innerHTML = ('<button type="button" class="btn btn-warning">你有點重哦 σ(´～｀*) <br>是不是該減肥啦?</button>');
+    if (your_bmi > 30)
+        document.getElementById("demo").innerHTML = ('<button type="button" class="btn btn-warning">你過重拉 ( ﾉ)ಠ_ಠ)<br>是時候減肥了吧?</button>');
+    if (your_bmi > 40)
+        document.getElementById("demo").innerHTML = ('<button type="button" class="btn btn-warning">你已經重度肥胖了 ΣΣ(ﾟдﾟ;;)!<br>該實施減肥計畫了吧!?</button>');
+
+}
+</script>
+
+<body>
+    <div class="container row py-3">
+        <div class="col-md-6" style="padding-top: 25px; background-color: rgba(255, 255, 255, .9);">
+            <table align="center" border="10" style="text-align: center;">
+                <tr>
+                    <th>健康狀況</th>
+                    <th>BMI值</th>
+                </tr>
+                <tr>
+                    <td>一般體重</td>
+                    <td>18.5 ~ 24</td>
+                </tr>
+                <tr>
+                    <td>重</td>
+                    <td>25 ~ 30</td>
+                </tr>
+                <tr>
+                    <td>很重</td>
+                    <td>30 ~ 40</td>
+                </tr>
+                <tr>
+                    <td>非常重</td>
+                    <td>40 以上</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6" style="padding-top: 25px; background-color: rgba(255, 255, 255, .9);">
+            <form align="center" method="post" name="a">
+                <p>身高
+                    <input name="enterCm" size="5"> 公分</p>
+                <p>體重
+                    <input name="enterKg" size="5"> 公斤</p>
+                <input type="button" class="btn btn-primary" onclick="countBmi()" value="開始計算">
+                <input type="reset" class="btn btn-danger" value="重新計算">
+                <p style="padding-top: 15px">你的BMI值是
+                    <input name="a_bmi" size="5">
+                </p>
+                <div id="demo" style="padding-bottom:20px"></div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
